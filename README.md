@@ -38,7 +38,7 @@ RNRD akan menjadi token utilitas utama dalam ekosistem RenderPool dan memiliki f
 | Marketing & Komunitas | 10%        |
 | Likuiditas & Listing  | 10%        |
 
-* **Total Supply**: 1.000.000.000 RNRD
+* **Total Supply**: 10.000.000.000 RNRD
 * **Tipe Token**: ERC-20 (berbasis jaringan Polygon untuk biaya transaksi rendah)
 
 
