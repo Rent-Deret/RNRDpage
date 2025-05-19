@@ -1,1 +1,227 @@
 
+<!DOCTYPE html>
+<html lang="en" data-theme="normal">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pembasan (PBS)</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-glossy: rgba(255, 255, 255, 0.15);
+      --text-color: #000;
+      --glass-color: #ffffff33;
+    }
+
+    [data-theme="dark"] {
+      --bg-glossy: rgba(0, 0, 0, 0.25);
+      --text-color: #fff;
+      --glass-color: #ffffff11;
+      background-color: #121212;
+    }
+
+    body {
+      font-family: sans-serif;
+      font-size: 0.75rem;
+      background: linear-gradient(135deg, #8e9eab, #eef2f3);
+      color: var(--text-color);
+      transition: background 0.5s, color 0.5s;
+    }
+
+    [data-theme="dark"] body {
+      background: linear-gradient(135deg, #1e1e2f, #3a3a52);
+    }
+
+    .glass-box {
+      background-color: var(--bg-glossy);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 12px;
+      border: 1px solid var(--glass-color);
+    }
+
+    .navbar {
+      height: 50px;
+      padding: 0 1rem;
+    }
+
+    .navbar-brand,
+    .nav-link,
+    .btn,
+    .dropdown-toggle {
+      font-size: 0.8rem !important;
+    }
+
+    .action-buttons button {
+      border: none;
+      background: none;
+      font-size: 0.75rem;
+      margin-right: 6px;
+      color: var(--text-color);
+    }
+
+    textarea {
+      resize: vertical;
+      font-size: 0.75rem;
+    }
+
+    .profile-menu {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 1001;
+    }
+
+    .toggle-theme {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      z-index: 1000;
+    }
+
+    #wallet-status {
+      font-size: 0.7rem;
+      color: var(--text-color);
+      margin-top: 4px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar atas -->
+  <nav class="navbar glass-box position-relative d-flex align-items-center" style="height: 50px;">
+  <button class="btn btn-outline-light btn-sm" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar">
+    <i class="bi bi-list"></i>
+  </button>
+  <div class="position-absolute top-50 start-50 translate-middle fw-semibold text-white">
+    Pembasan
+  </div>
+</nav>
+
+
+  <!-- Sidebar menu (offcanvas kiri) -->
+  <div class="offcanvas offcanvas-start glass-box" tabindex="-1" id="offcanvasNavbar">
+    <div class="offcanvas-header">
+      <h6 class="offcanvas-title fw-bold">Menu</h6>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="nav flex-column">
+        <a class="nav-link active" href="#">Home</a>
+        <a class="nav-link" href="https://polygonscan.com/" target="_blank">PolygonScan</a>
+        <a class="nav-link" href="#">Dex Swap</a>
+        <a class="nav-link" href="#">Pengaturan</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Profil kanan atas -->
+  <div class="profile-menu">
+    <div class="dropdown">
+      <a class="btn btn-outline-secondary btn-sm dropdown-toggle" href="#" id="profileDropdown" role="button"
+        data-bs-toggle="dropdown">Profil</a>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#" onclick="connectWallet()">Connect Wallet</a></li>
+        <li><a class="dropdown-item" href="#">Profil Saya</a></li>
+        <li><a class="dropdown-item" href="#">Pengaturan Akun</a></li>
+        <li><a class="dropdown-item" href="#">Log Out</a></li>
+      </ul>
+      <div id="wallet-status"></div>
+    </div>
+  </div>
+
+  <!-- Konten utama -->
+  <div class="container mt-4 content-area">
+    <div class="glass-box p-3 mb-4">
+      <h6 style="font-style: italic;">What do you think</h6>
+      <textarea id="post-content" class="form-control mb-2" placeholder="Tulis status Anda..."></textarea>
+      <div class="text-end">
+        <button class="btn btn-dark btn-sm" onclick="postContent()">
+          <i class="bi bi-plus-square"></i> Kirim
+        </button>
+      </div>
+    </div>
+
+    <!-- Postingan user -->
+    <div class="glass-box p-3 mb-3">
+      <div class="d-flex align-items-start">
+        <i class="bi bi-person-circle fs-5 me-2"></i>
+        <div class="flex-grow-1">
+          <strong>User_1</strong>
+          <p class="mb-2">Ini adalah status dari user pertama...</p>
+          <div class="action-buttons mb-2">
+            <button>馃憤</button>
+            <button>馃憥</button>
+            <button class="btn-komen">馃挰</button>
+            <button>鈫�</button>
+          </div>
+          <div class="comment-editor d-none">
+            <textarea class="form-control mb-2" placeholder="Tulis komentar Anda..."></textarea>
+            <div class="text-end">
+              <button class="btn btn-secondary btn-sm">Kirim Komentar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tombol ganti tema -->
+  <button class="btn btn-outline-secondary btn-sm toggle-theme">Toggle Mode</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Toggle komentar
+    document.querySelectorAll('.btn-komen').forEach(button => {
+      button.addEventListener('click', () => {
+        const editor = button.closest('.glass-box').querySelector('.comment-editor');
+        editor.classList.toggle('d-none');
+      });
+    });
+
+    // Toggle tema
+    document.querySelector('.toggle-theme').addEventListener('click', () => {
+      const html = document.documentElement;
+      const currentTheme = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', currentTheme === 'dark' ? 'normal' : 'dark');
+    });
+
+    // Connect Wallet (Ethereum & TronLink)
+    async function connectWallet() {
+      const status = document.getElementById('wallet-status');
+
+      if (window.ethereum) {
+        try {
+          const accounts = await window.ethereum.request({ method: 'eth_requestAccounts' });
+          status.innerText = "Wallet: " + accounts[0];
+          localStorage.setItem('wallet', accounts[0]);
+          alert("Connected: " + accounts[0]);
+        } catch (err) {
+          alert("Connection rejected.");
+        }
+      } else if (window.tronLink && window.tronLink.ready) {
+        const address = window.tronLink.tronWeb.defaultAddress.base58;
+        status.innerText = "Wallet: " + address;
+        localStorage.setItem('wallet', address);
+        alert("TronLink Connected: " + address);
+      } else {
+        alert("Please install MetaMask, TrustWallet, or TronLink.");
+      }
+    }
+
+    // Post content
+    function postContent() {
+      const content = document.getElementById('post-content').value;
+      if (content.trim() === "") {
+        alert("Please write something!");
+        return;
+      }
+      alert("Posted:\n" + content);
+    }
+  </script>
+</body>
+
+</html>
