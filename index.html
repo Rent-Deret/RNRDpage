@@ -2,59 +2,244 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RNRD Token - The Future of Decentralized Rendering</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pembasan (PBS) Token</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Gaya Modern dan Dark Mode -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #e0f7fa, #fff);
+      color: #212529;
+    }
+
+    .glass {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 15px;
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    header {
+      background: linear-gradient(to right, #007bff, #00c6ff);
+      color: white;
+    }
+
+    footer {
+      background-color: #f8f9fa;
+    }
+
+    /* Dark Mode otomatis berdasarkan preferensi sistem */
+    @media (prefers-color-scheme: dark) {
+      body {
+        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+        color: #e0e0e0;
+      }
+      .glass {
+        background: rgba(20, 20, 20, 0.7);
+        color: #e0e0e0;
+      }
+      header {
+        background: linear-gradient(to right, #232526, #414345);
+        color: #f1f1f1;
+      }
+      footer {
+        background-color: #1c1c1c;
+        color: #aaa;
+      }
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white font-sans">
-  <!-- Header -->
-  <header class="p-6 text-center bg-gradient-to-r from-blue-700 to-purple-800">
-    <h1 class="text-4xl font-bold">RNRD</h1>
-    <p class="text-lg mt-2">The Future of Decentralized Rendering Power</p>
-    <a href="https://polygonscan.com/token/0x715024cC9e9dDb66CA93ED51Ac68004a60262B62" class="mt-4 inline-block bg-blue-600 hover:bg-blue-700 px-5 py-2 rounded-full text-white font-medium">RNRD Polygonscan</a>
-  </header>
 
-  <!-- About -->
-  <section class="p-8 max-w-3xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4">About RNRD</h2>
-    <p class="text-gray-300 mb-4">
-      RNRD is a decentralized utility token designed to reward GPU-based compute power via a rendering pool network. Built on the Polygon blockchain, RNRD empowers users and node operators with seamless, efficient, and tokenized rendering services.
-    </p>
-    <p class="text-gray-300">
-      Whether you're an animator, VFX artist, or just a tech enthusiast, RNRD gives you access to a new way of contributing and earning from compute work.
-    </p>
-  </section>
+<body>
 
-  <!-- Tokenomics -->
-  <section class="bg-gray-800 p-8">
-    <div class="max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold mb-4">Tokenomics</h2>
-      <ul class="text-gray-200 space-y-2">
-        <li><strong>Token Name:</strong> RNRD</li>
-        <li><strong>Blockchain:</strong> Polygon (MATIC)</li>
-        <li><strong>Contract Address:</strong> <code class="text-blue-400">0x715024cC9e9dDb66CA93ED51Ac68004a60262B62</code></li>
-        <li><strong>Total Supply:</strong> 10,000,000,000 RNRD</li>
-        <li><strong>Initial Liquidity:</strong> 10%</li>
-      </ul>
-    </div>
-  </section>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">PBS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item active"><a class="nav-link" href="#introduction" data-key="nav_home">Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="#token-specs" data-key="nav_quickswap">Quickswap</a></li>
+      <li class="nav-item"><a class="nav-link" href="#roadmap" data-key="nav_pricing">Pricing</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://t.me/namabot" target="_blank">Telegram</a></li>
+    </ul>
+    <button class="btn btn-sm btn-outline-primary ml-3" onclick="toggleLanguage()">ID | EN</button>
+  </div>
+</nav>
 
-  <!-- Chart and Links -->
-  <section class="p-8 max-w-4xl mx-auto">
-    <h2 class="text-2xl font-bold mb-4">Live Trade</h2>
-    <div class="mb-6">
-      <iframe src="https://dapp.quickswap.exchange/swap/v3/ETH/0x715024cC9e9dDb66CA93Ed51AC68004a60262B62" class="w-full h-96 border-2 border-blue-500 rounded-lg"></iframe>
-    </div>
-    <div class="space-x-4">
-      <a href="https://dapp.quickswap.exchange/swap/v3/ETH/0x715024cC9e9dDb66CA93Ed51AC68004a60262B62e" class="bg-purple-600 hover:bg-purple-700 px-4 py-2 rounded">Buy RNRD</a>
-      <a href="https://x.com/RentDeret?t=YAHoSlBQVn45k9nOuM1lhQ&s=09" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">Follow X/twitter</a>
-      <a href="#" class="bg-gray-700 hover:bg-gray-600 px-4 py-2 rounded">View Contract</a>
-    </div>
-  </section>
+<!-- Header -->
+<header class="text-center py-5">
+  <h1 id="title">Pembasan (PBS) Token</h1>
+  <p id="subtitle">Solusi Sosial-Fi untuk Memberi Nilai pada Partisipasi Komunitas Digital</p>
+</header>
 
-  <!-- Footer -->
-  <footer class="text-center p-4 text-gray-500 text-sm bg-gray-800">
-    &copy; 2025 RNRD Project. Built for the future of decentralized compute.
-  </footer>
+<!-- Main Container -->
+<div class="container my-5">
+  <div class="glass" id="introduction">
+    <h2 data-key="intro_title">Pendahuluan</h2>
+    <p data-key="intro_content">Pembasan (PBS) adalah token utilitas berbasis blockchain Polygon yang bertujuan memberikan insentif kepada pengguna media sosial melalui sistem reward yang adil dan transparan.</p>
+  </div>
+
+  <div class="glass" id="vision-mission">
+    <h2 data-key="vision_title">Visi dan Misi</h2>
+    <h4 data-key="vision">Visi</h4>
+    <p data-key="vision_text">Menciptakan ekosistem sosial yang adil dan berkelanjutan.</p>
+    <h4 data-key="mission">Misi</h4>
+    <p data-key="mission_text">Memberikan insentif, mendorong interaksi berkualitas, dan menyediakan alat ekonomi terdesentralisasi.</p>
+  </div>
+
+  <div class="glass" id="token-specs">
+    <h2 data-key="spec_title">Spesifikasi Token</h2>
+    <ul>
+      <li data-key="spec_name">Nama: Pembasan</li>
+      <li data-key="spec_symbol">Simbol: PBS</li>
+      <li data-key="spec_network">Jaringan: Polygon (ERC-20)</li>
+      <li data-key="spec_supply">Total Suplai: 1 Triliun PBS</li>
+      <li data-key="spec_decimal">Desimal: 18</li>
+    </ul>
+  </div>
+
+  <div class="glass" id="token-distribution">
+    <h2 data-key="dist_title">Distribusi Token</h2>
+    <p data-key="dist_intro">Berikut adalah alokasi token PBS:</p>
+    <ul>
+      <li>Developer: 35%</li>
+      <li>Reward: 35%</li>
+      <li>Burning: 10%</li>
+      <li>Listing: 10%</li>
+      <li>Dependace: 10%</li>
+    </ul>
+    <canvas id="tokenChart" width="400" height="400"></canvas>
+  </div>
+
+  <div class="glass" id="roadmap">
+    <h2 data-key="roadmap_title">Peta Jalan</h2>
+    <ul>
+      <li data-key="q2_2025">Q2 2025: Pengembangan awal</li>
+      <li data-key="q3_2025">Q3 2025: Testnet dan audit</li>
+      <li data-key="q4_2025">Q4 2025: Launch dan listing</li>
+      <li data-key="q1_2026">Q1 2026: Integrasi sosial & NFT</li>
+      <li data-key="q2_2026">Q2 2026: DAO dan monetisasi kreator</li>
+    </ul>
+  </div>
+
+  <div class="glass" id="conclusion">
+    <h2 data-key="conclusion_title">Penutup</h2>
+    <p data-key="conclusion_text">PBS adalah solusi Sosial-Fi untuk memberikan nilai pada partisipasi komunitas digital.</p>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="text-center py-3">
+  <p>&copy; 2025 Pembasan (PBS). All Rights Reserved.</p>
+</footer>
+
+<!-- Script Section -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+
+<script>
+  const lang = {
+    id: {
+      title: "Pembasan (PBS) Token",
+      subtitle: "Solusi Sosial-Fi untuk Memberi Nilai pada Partisipasi Komunitas Digital",
+      nav_home: "Beranda",
+      nav_quickswap: "Quickswap",
+      nav_pricing: "Harga",
+      intro_title: "Pendahuluan",
+      intro_content: "Pembasan (PBS) adalah token utilitas berbasis blockchain Polygon yang bertujuan memberikan insentif kepada pengguna media sosial.",
+      vision_title: "Visi dan Misi",
+      vision: "Visi",
+      vision_text: "Menciptakan ekosistem sosial yang adil dan berkelanjutan.",
+      mission: "Misi",
+      mission_text: "Memberikan insentif, mendorong interaksi berkualitas, dan menyediakan alat ekonomi terdesentralisasi.",
+      spec_title: "Spesifikasi Token",
+      spec_name: "Nama: Pembasan",
+      spec_symbol: "Simbol: PBS",
+      spec_network: "Jaringan: Polygon (ERC-20)",
+      spec_supply: "Total Suplai: 1 Triliun PBS",
+      spec_decimal: "Desimal: 18",
+      dist_title: "Distribusi Token",
+      dist_intro: "Berikut adalah alokasi token PBS:",
+      roadmap_title: "Peta Jalan",
+      q2_2025: "Q2 2025: Pengembangan awal",
+      q3_2025: "Q3 2025: Testnet dan audit",
+      q4_2025: "Q4 2025: Launch dan listing",
+      q1_2026: "Q1 2026: Integrasi sosial & NFT",
+      q2_2026: "Q2 2026: DAO dan monetisasi kreator",
+      conclusion_title: "Penutup",
+      conclusion_text: "PBS adalah solusi Sosial-Fi untuk memberikan nilai pada partisipasi komunitas digital."
+    },
+    en: {
+      title: "Pembasan (PBS) Token",
+      subtitle: "A Social-Fi Solution to Value Digital Community Participation",
+      nav_home: "Home",
+      nav_quickswap: "Quickswap",
+      nav_pricing: "Pricing",
+      intro_title: "Introduction",
+      intro_content: "Pembasan (PBS) is a utility token on the Polygon blockchain aimed at incentivizing social media users through a fair reward system.",
+      vision_title: "Vision and Mission",
+      vision: "Vision",
+      vision_text: "To create a fair and sustainable social ecosystem.",
+      mission: "Mission",
+      mission_text: "To provide incentives, foster quality interactions, and enable decentralized economic tools.",
+      spec_title: "Token Specifications",
+      spec_name: "Name: Pembasan",
+      spec_symbol: "Symbol: PBS",
+      spec_network: "Network: Polygon (ERC-20)",
+      spec_supply: "Total Supply: 1 Trillion PBS",
+      spec_decimal: "Decimals: 18",
+      dist_title: "Token Distribution",
+      dist_intro: "Here is the PBS token allocation:",
+      roadmap_title: "Roadmap",
+      q2_2025: "Q2 2025: Initial development",
+      q3_2025: "Q3 2025: Testnet and audit",
+      q4_2025: "Q4 2025: Launch and listing",
+      q1_2026: "Q1 2026: Social & NFT integration",
+      q2_2026: "Q2 2026: DAO and creator monetization",
+      conclusion_title: "Conclusion",
+      conclusion_text: "PBS is a Social-Fi solution to value digital community participation."
+    }
+  };
+
+  let currentLang = "id";
+
+  function toggleLanguage() {
+    currentLang = currentLang === "id" ? "en" : "id";
+    for (const [key, value] of Object.entries(lang[currentLang])) {
+      const el = document.querySelector(`[data-key="${key}"]`);
+      if (el) el.innerText = value;
+    }
+  }
+
+  var ctx = document.getElementById('tokenChart').getContext('2d');
+  var tokenChart = new Chart(ctx, {
+    type: 'pie',
+    data: {
+      labels: ['Developer', 'Reward', 'Burning', 'Listing', 'Dependace'],
+      datasets: [{
+        data: [35, 35, 10, 10, 10],
+        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6c757d']
+      }]
+    },
+    options: {
+      responsive: true,
+      title: { display: true, text: 'Distribusi Token PBS' }
+    }
+  });
+</script>
+
 </body>
 </html>
