@@ -1,246 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gayeng (GYG) Token</title>
-
-  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Gaya Modern dan Dark Mode -->
   <style>
     body {
       margin: 0;
       padding: 0;
       font-family: "Segoe UI", sans-serif;
-      background: linear-gradient(135deg, #e0f7fa, #fff);
+      background: linear-gradient(135deg, #f0c14b, #e2b007, #cfa202);
       color: #212529;
     }
 
     .glass {
-      background: rgba(255, 255, 255, 0.65);
+      background: rgba(255, 245, 200, 0.8);
       backdrop-filter: blur(10px);
       border-radius: 15px;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
       padding: 2rem;
       margin-bottom: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .glass::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -75%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.6) 50%, rgba(255,255,255,0.1) 100%);
+      transform: skewX(-25deg);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -75%; }
+      100% { left: 125%; }
     }
 
     header {
-      background: linear-gradient(to right, #007bff, #00c6ff);
+      background: linear-gradient(to right, #FFD700, #FFC107);
       color: white;
     }
 
     footer {
-      background-color: #f8f9fa;
-    }
-
-    /* Dark Mode otomatis berdasarkan preferensi sistem */
-    @media (prefers-color-scheme: dark) {
-      body {
-        background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-        color: #e0e0e0;
-      }
-      .glass {
-        background: rgba(20, 20, 20, 0.7);
-        color: #e0e0e0;
-      }
-      header {
-        background: linear-gradient(to right, #232526, #414345);
-        color: #f1f1f1;
-      }
-      footer {
-        background-color: #1c1c1c;
-        color: #aaa;
-      }
+      background-color: #fff8dc;
+      color: #333;
     }
   </style>
 </head>
-
 <body>
-
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" href="#">GYG</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  <a class="navbar-brand" href="#">GaYenG</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-      <li class="nav-item active"><a class="nav-link" href="#introduction" data-key="nav_home">Home</a></li>
-      <li class="nav-item"><a class="nav-link" href="#token-specs" data-key="nav_quickswap">Quickswap</a></li>
-      <li class="nav-item"><a class="nav-link" href="mockup.html" data-key="nav_pricing">Mockup</a></li>
-      <li class="nav-item"><a class="nav-link" href="https://t.me/GYGofficialTelegram_bot" target="_blank">Telegram</a></li>
+      <li class="nav-item"><a class="nav-link lang" href="#introduction" data-id="Beranda" data-en="Home">Beranda</a></li>
+      <li class="nav-item"><a class="nav-link lang" href="#token-specs" data-id="Token" data-en="Token">Token</a></li>
+      <li class="nav-item"><a class="nav-link lang" href="#utility" data-id="Utilitas" data-en="Utility">Utilitas</a></li>
+      <li class="nav-item"><a class="nav-link lang" href="#roadmap" data-id="Roadmap" data-en="Roadmap">Roadmap</a></li>
+      <li class="nav-item"><a class="nav-link" href="https://t.me/GYGOfficial" target="_blank">Telegram</a></li>
+      <li class="nav-item">
+        <button id="lang-toggle" class="btn btn-outline-secondary ml-2">EN</button>
+      </li>
     </ul>
-    <button class="btn btn-sm btn-outline-primary ml-3" onclick="toggleLanguage()">ID | EN</button>
   </div>
 </nav>
 
-<!-- Header -->
 <header class="text-center py-5">
-  <h1 id="title">Gayeng (GYG) Token</h1>
-  <p id="subtitle">Solusi Sosial-Fi untuk Memberi Nilai pada Partisipasi Komunitas Digital</p>
+  <img src="./Gayeng_128x128.png" alt="Logo Gayeng Token" width="128" height="128" class="mb-3">
+  <h1 class="lang" data-id="Gayeng (GYG) Token" data-en="Gayeng (GYG) Token">Gayeng (GYG) Token</h1>
+  <p class="lang" data-id="Solusi SosialFi berbasis Polygon untuk partisipasi komunitas digital yang bernilai." data-en="Polygon-based SocialFi solution for valuable digital community participation.">Solusi SosialFi berbasis Polygon untuk partisipasi komunitas digital yang bernilai.</p>
 </header>
 
-<!-- Main Container -->
 <div class="container my-5">
   <div class="glass" id="introduction">
-    <h2 data-key="intro_title">Pendahuluan</h2>
-    <p data-key="intro_content">Gayeng (GYG) adalah token utilitas berbasis blockchain Polygon yang bertujuan memberikan insentif kepada pengguna media sosial melalui sistem reward yang adil dan transparan.</p>
+    <h2 class="lang" data-id="Pendahuluan" data-en="Introduction">Pendahuluan</h2>
+    <p class="lang" data-id="Gayeng (GYG) adalah token utilitas berbasis blockchain Polygon PoS yang mendukung ekosistem media sosial terdesentralisasi melalui staking, airdrop, dan insentif komunitas." data-en="Gayeng (GYG) is a utility token based on Polygon PoS blockchain that supports a decentralized social media ecosystem through staking, airdrops, and community incentives.">Gayeng (GYG) adalah token utilitas berbasis blockchain Polygon PoS yang mendukung ekosistem media sosial terdesentralisasi melalui staking, airdrop, dan insentif komunitas.</p>
   </div>
-
   <div class="glass" id="vision-mission">
-    <h2 data-key="vision_title">Visi dan Misi</h2>
-    <h4 data-key="vision">Visi</h4>
-    <p data-key="vision_text">Menciptakan ekosistem sosial yang adil dan berkelanjutan.</p>
-    <h4 data-key="mission">Misi</h4>
-    <p data-key="mission_text">Memberikan insentif, mendorong interaksi berkualitas, dan menyediakan alat ekonomi terdesentralisasi.</p>
+    <h2 class="lang" data-id="Visi dan Misi" data-en="Vision and Mission">Visi dan Misi</h2>
+    <h4 class="lang" data-id="Visi" data-en="Vision">Visi</h4>
+    <p class="lang" data-id="Mengembangkan komunitas sosial melalui teknologi blockchain." data-en="Developing social communities through blockchain technology.">Mengembangkan komunitas sosial melalui teknologi blockchain.</p>
+    <h4 class="lang" data-id="Misi" data-en="Mission">Misi</h4>
+    <p class="lang" data-id="Membangun DApps media sosial dengan fitur staking, airdrop, dan sistem reward untuk mendorong interaksi digital yang adil dan terdesentralisasi." data-en="Building social media DApps with staking, airdrop, and reward systems to promote fair and decentralized digital interaction.">Membangun DApps media sosial dengan fitur staking, airdrop, dan sistem reward untuk mendorong interaksi digital yang adil dan terdesentralisasi.</p>
   </div>
-
   <div class="glass" id="token-specs">
-    <h2 data-key="spec_title">Spesifikasi Token</h2>
+    <h2 class="lang" data-id="Spesifikasi Token" data-en="Token Specifications">Spesifikasi Token</h2>
     <ul>
-      <li data-key="spec_name">Nama: Gayeng</li>
-      <li data-key="spec_symbol">Simbol: GYG</li>
-      <li data-key="spec_network">Jaringan: Polygon (ERC-20)</li>
-      <li data-key="spec_supply">Total Suplai: 1 juta GYG</li>
-      <li data-key="spec_decimal">Desimal: 6</li>
+      <li class="lang" data-id="Nama: Gayeng" data-en="Name: Gayeng">Nama: Gayeng</li>
+      <li class="lang" data-id="Simbol: GYG" data-en="Symbol: GYG">Simbol: GYG</li>
+      <li class="lang" data-id='Alamat: <a href="https://polygonscan.com/address/0x5a88d4343a7D926153E86AA0e434D28515f9dE53" target="_blank">0x5a88...e53</a>' data-en='Address: <a href="https://polygonscan.com/address/0x5a88d4343a7D926153E86AA0e434D28515f9dE53" target="_blank">0x5a88...e53</a>'>Alamat: <a href="https://polygonscan.com/address/0x5a88d4343a7D926153E86AA0e434D28515f9dE53" target="_blank">0x5a88...e53</a></li>
+      <li class="lang" data-id="Jaringan: Polygon PoS" data-en="Network: Polygon PoS">Jaringan: Polygon PoS</li>
+      <li class="lang" data-id="Total Suplai: 1,000,000 GYG" data-en="Total Supply: 1,000,000 GYG">Total Suplai: 1,000,000 GYG</li>
+      <li class="lang" data-id="Desimal: 18" data-en="Decimals: 6">Desimal: 18</li>
     </ul>
   </div>
-
-  <div class="glass" id="token-distribution">
-    <h2 data-key="dist_title">Distribusi Token</h2>
-    <p data-key="dist_intro">Berikut adalah alokasi token GYG:</p>
+  <div class="glass" id="utility">
+    <h2 class="lang" data-id="Utilitas Token" data-en="Token Utility">Utilitas Token</h2>
     <ul>
-      <li>PreSale: 50%</li>
-      <li>Reward/Staking: 5%</li>
-      <li>Trasure/Burning: 5%</li>
-      <li>Liquid Pool: 16.5%</li>
-      <li>Airdrop & Komunitas: 10%</li>
-      <li>Tim & Founder: 13.5%</li>
+      <li class="lang" data-id="Alat pembayaran antara pengguna dan pembuat konten" data-en="Payment tool between users and content creators">Alat pembayaran antara pengguna dan pembuat konten</li>
+      <li class="lang" data-id="Insentif melalui staking dengan APY kompetitif" data-en="Incentives through staking with competitive APY">Insentif melalui staking dengan APY kompetitif</li>
+      <li class="lang" data-id="Partisipasi dalam airdrop dan reward komunitas" data-en="Participation in airdrops and community rewards">Partisipasi dalam airdrop dan reward komunitas</li>
     </ul>
-    <canvas id="tokenChart" width="400" height="400"></canvas>
   </div>
-
   <div class="glass" id="roadmap">
-    <h2 data-key="roadmap_title">Peta Jalan</h2>
+    <h2 class="lang" data-id="Roadmap" data-en="Roadmap">Roadmap</h2>
     <ul>
-      <li data-key="q2_2025">Q2 2025: Pengembangan awal</li>
-      <li data-key="q3_2025">Q3 2025: Testnet dan audit</li>
-      <li data-key="q4_2025">Q4 2025: Launch dan listing</li>
-      <li data-key="q1_2026">Q1 2026: List Dex & Cex</li>
-      <li data-key="q2_2026">Q2 2026: Dapps Launch</li>
+      <li class="lang" data-id="Q2 2025: Peluncuran Whitepaper, Website, dan Presale" data-en="Q2 2025: Launch of Whitepaper, Website, and Presale">Q2 2025: Peluncuran Whitepaper, Website, dan Presale</li>
+      <li class="lang" data-id="Q3 2025: Peluncuran DApps beta dan program staking" data-en="Q3 2025: Beta launch of DApps and staking program">Q3 2025: Peluncuran DApps beta dan program staking</li>
+      <li class="lang" data-id="Q1 2026: Peluncuran penuh ekosistem Pebasan (PBS)" data-en="Q1 2026: Full launch of Pebasan (PBS) ecosystem">Q1 2026: Peluncuran penuh ekosistem Pebasan (PBS)</li>
+      <li class="lang" data-id="Q4 2026: Peluncuran final platform SosialFi" data-en="Q4 2026: Final launch of SocialFi platform">Q4 2026: Peluncuran final platform SosialFi</li>
     </ul>
   </div>
-
   <div class="glass" id="conclusion">
-    <h2 data-key="conclusion_title">Penutup</h2>
-    <p data-key="conclusion_text">GYG adalah solusi Sosial-Fi untuk memberikan nilai pada partisipasi komunitas digital.</p>
+    <h2 class="lang" data-id="Penutup" data-en="Conclusion">Penutup</h2>
+    <p class="lang" data-id="GYG berkomitmen menghadirkan inovasi SosialFi yang memberdayakan komunitas digital dengan insentif dan kontrol yang lebih adil melalui teknologi blockchain." data-en="GYG is committed to delivering SocialFi innovation that empowers digital communities with fairer incentives and control through blockchain technology.">GYG berkomitmen menghadirkan inovasi SosialFi yang memberdayakan komunitas digital dengan insentif dan kontrol yang lebih adil melalui teknologi blockchain.</p>
   </div>
 </div>
 
-<!-- Footer -->
 <footer class="text-center py-3">
-  <p>&copy; 2025 Gayeng (GYG). All Rights Reserved.</p>
+  <p class="lang" data-id="&copy; 2025 Gayeng (GYG). Semua hak dilindungi." data-en="&copy; 2025 Gayeng (GYG). All rights reserved.">&copy; 2025 Gayeng (GYG). Semua hak dilindungi.</p>
+  <small class="lang" data-id="Disclaimer: Informasi ini bukan merupakan ajakan investasi. Silakan lakukan riset Anda sendiri." data-en="Disclaimer: This information does not constitute investment advice. Please do your own research.">Disclaimer: Informasi ini bukan merupakan ajakan investasi. Silakan lakukan riset Anda sendiri.</small>
 </footer>
 
-<!-- Script Section -->
-<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
-
 <script>
-  const lang = {
-    id: {
-      title: "Gayeng (GYG) Token",
-      subtitle: "Solusi Sosial-Fi untuk Memberi Nilai pada Partisipasi Komunitas Digital",
-      nav_home: "Beranda",
-      nav_quickswap: "Quickswap",
-      nav_pricing: "Harga",
-      intro_title: "Pendahuluan",
-      intro_content: "Gayeng (GYG) adalah token utilitas berbasis blockchain Polygon yang bertujuan memberikan insentif kepada pengguna media sosial.",
-      vision_title: "Visi dan Misi",
-      vision: "Visi",
-      vision_text: "Menciptakan ekosistem sosial yang adil dan berkelanjutan.",
-      mission: "Misi",
-      mission_text: "Memberikan insentif, mendorong interaksi berkualitas, dan menyediakan alat ekonomi terdesentralisasi.",
-      spec_title: "Spesifikasi Token",
-      spec_name: "Nama: Gayeng",
-      spec_symbol: "Simbol: GYG",
-      spec_network: "Jaringan: Polygon (ERC-20)",
-      spec_supply: "Total Suplai: 1 milion GYG",
-      spec_decimal: "Desimal: 6",
-      dist_title: "Distribusi Token",
-      dist_intro: "Berikut adalah alokasi token GYG:",
-      roadmap_title: "Peta Jalan",
-      q2_2025: "Q2 2025: Pengembangan awal",
-      q3_2025: "Q3 2025: Testnet dan audit",
-      q4_2025: "Q4 2025: Launch",
-      q1_2026: "Q1 2026: List Dex & Cex",
-      q2_2026: "Q2 2026: Dapps Launch",
-      conclusion_title: "Penutup",
-      conclusion_text: "GYG adalah solusi Sosial-Fi untuk memberikan nilai pada partisipasi komunitas digital."
-    },
-    en: {
-      title: "Gayeng (GYG) Token",
-      subtitle: "A Social-Fi Solution to Value Digital Community Participation",
-      nav_home: "Home",
-      nav_quickswap: "Quickswap",
-      nav_pricing: "Pricing",
-      intro_title: "Introduction",
-      intro_content: "Gayeng (GYG) is a utility token on the Polygon blockchain aimed at incentivizing social media users through a fair reward system.",
-      vision_title: "Vision and Mission",
-      vision: "Vision",
-      vision_text: "To create a fair and sustainable social ecosystem.",
-      mission: "Mission",
-      mission_text: "To provide incentives, foster quality interactions, and enable decentralized economic tools.",
-      spec_title: "Token Specifications",
-      spec_name: "Name: Gayeng",
-      spec_symbol: "Symbol: GYG",
-      spec_network: "Network: Polygon (ERC-20)",
-      spec_supply: "Total Supply: 1 Milion GYG",
-      spec_decimal: "Decimals: 6",
-      dist_title: "Token Distribution",
-      dist_intro: "Here is the GYG token allocation:",
-      roadmap_title: "Roadmap",
-      q2_2025: "Q2 2025: Initial development",
-      q3_2025: "Q3 2025: Testnet and audit",
-      q4_2025: "Q4 2025: Launch",
-      q1_2026: "Q1 2026: list Dex & Cex",
-      q2_2026: "Q2 2026: Dapps Launch",
-      conclusion_title: "Conclusion",
-      conclusion_text: "GYG is a Social-Fi solution to value digital community participation."
-    }
-  };
+  let currentLang = 'id';
+  document.getElementById('lang-toggle').addEventListener('click', () => {
+    currentLang = currentLang === 'id' ? 'en' : 'id';
+    document.getElementById('lang-toggle').innerText = currentLang === 'id' ? 'EN' : 'ID';
 
-  let currentLang = "id";
-
-  function toggleLanguage() {
-    currentLang = currentLang === "id" ? "en" : "id";
-    for (const [key, value] of Object.entries(lang[currentLang])) {
-      const el = document.querySelector(`[data-key="${key}"]`);
-      if (el) el.innerText = value;
-    }
-  }
-
-  var ctx = document.getElementById('tokenChart').getContext('2d');
-  var tokenChart = new Chart(ctx, {
-    type: 'pie',
-    data: {
-      labels: ['PreSale', 'Reward', 'Burning', 'Listing', 'Tim & dev', 'Airdrop'],
-      datasets: [{
-        data: [50, 5, 5, 16.5, 13.5, 10],
-        backgroundColor: ['#007bff', '#28a745', '#ffc107', '#dc3545', '#6c757d']
-      }]
-    },
-    options: {
-      responsive: true,
-      title: { display: true, text: 'Distribusi Token GYG' }
-    }
+    document.querySelectorAll('.lang').forEach(el => {
+      const text = el.getAttribute(`data-${currentLang}`);
+      if (text) el.innerHTML = text;
+    });
   });
 </script>
-
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
