@@ -58,7 +58,7 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item"><a class="nav-link" href="./index.html">Beranda</a></li>
-      <li class="nav-item"><a class="nav-link" href="./beli.html">Orderbook</a></li>
+      <li class="nav-item"><a class="nav-link" href="./beli.html">Beli</a></li>
       <li class="nav-item"><a class="nav-link" href="https://t.me/GYGOfficial" target="_blank">Telegram</a></li>
     </ul>
   </div>
@@ -96,6 +96,10 @@
       <div class="form-group">
         <label for="telegram">Akun Telegram</label>
         <input type="text" class="form-control" id="telegram" placeholder="@username" required>
+      </div>
+      <div class="form-group">
+        <label for="wallet">Alamat Wallet Polygon</label>
+        <input type="text" class="form-control" id="wallet" placeholder="Contoh: 0xABC123..." required>
       </div>
       <div class="form-group">
         <label for="jumlahBeli">Jumlah Beli (POL)</label>
@@ -160,6 +164,7 @@
   document.getElementById('orderForm').addEventListener('submit', async function(e) {
     e.preventDefault();
     const telegram = document.getElementById('telegram').value.trim();
+    const wallet = document.getElementById('wallet').value.trim();
     const beli = parseFloat(document.getElementById('jumlahBeli').value) || 0;
     const jual = parseFloat(document.getElementById('jumlahJual').value) || 0;
     const tx = document.getElementById('tx').value.trim();
@@ -177,12 +182,12 @@
       alert("Isi salah satu: beli atau jual.");
       return;
     }
-    if (!telegram || !tx) {
+    if (!telegram || !wallet || !tx) {
       alert("Lengkapi semua kolom wajib.");
       return;
     }
 
-    const message = `馃摜 ORDER GYG\\n\\n馃懁 Telegram: ${telegram}\\n馃煝 Beli (POL): ${beli}\\n馃敶 Jual (GYG): ${jual}\\n馃敆 TX Hash: ${tx}`;
+    const message = `📥 ORDER GYG\\n\\n👤 Telegram: ${telegram}\\n🏦 Wallet: ${wallet}\\n🟢 Beli (POL): ${beli}\\n🔴 Jual (GYG): ${jual}\\n🔗 TX Hash: ${tx}`;
     const TOKEN = '7555704648:AAFIpiwuqyS8zJCWw0cwUAZltB8JXF2jxMo';
     const CHAT_ID = '8141711698';
 
@@ -204,6 +209,8 @@
   });
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
