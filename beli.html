@@ -79,7 +79,7 @@
       <li>Untuk membeli GYG, kirim Polygon (POL) ke wallet:</li>
       <li>
         <div class="input-group my-2">
-          <input type="text" class="form-control" id="walletAddress" value="0xD0CeAbC1234567890abcdefABCDEF0123456789" readonly>
+          <input type="text" class="form-control" id="walletAddress" value="0x517304065773A804E8545ae24DFcF29e67F825c2" readonly>
           <div class="input-group-append">
             <button class="btn btn-outline-dark" onclick="salinAlamat()">Salin</button>
           </div>
@@ -125,14 +125,14 @@
 <footer class="text-center py-3">
   <p>&copy; 2025 Gayeng (GYG). Semua hak dilindungi.</p>
 </footer>
-
+<!-- Script utama -->
 <script>
   function salinAlamat() {
     const input = document.getElementById('walletAddress');
     input.select();
     input.setSelectionRange(0, 99999);
     document.execCommand("copy");
-    alert("Alamat wallet berhasil disalin:\\n" + input.value);
+    alert("Alamat wallet berhasil disalin:\n" + input.value);
   }
 
   const kurs = 50;
@@ -163,6 +163,7 @@
 
   document.getElementById('orderForm').addEventListener('submit', async function(e) {
     e.preventDefault();
+
     const telegram = document.getElementById('telegram').value.trim();
     const wallet = document.getElementById('wallet').value.trim();
     const beli = parseFloat(document.getElementById('jumlahBeli').value) || 0;
@@ -187,14 +188,24 @@
       return;
     }
 
-    const message = `📥 ORDER GYG\\n\\n👤 Telegram: ${telegram}\\n🏦 Wallet: ${wallet}\\n🟢 Beli (POL): ${beli}\\n🔴 Jual (GYG): ${jual}\\n🔗 TX Hash: ${tx}`;
+    const message = `📩 *ORDER GYG*\n\n` +
+      `👤 *Telegram:* ${telegram}\n` +
+      `💰 *Wallet:* \`${wallet}\`\n` +
+      `🟢 *Beli (POL):* ${beli}\n` +
+      `🔴 *Jual (GYG):* ${jual}\n` +
+      `🔗 *TX Hash:* \`${tx}\``;
+
     const TOKEN = '7555704648:AAFIpiwuqyS8zJCWw0cwUAZltB8JXF2jxMo';
     const CHAT_ID = '8141711698';
 
     fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ chat_id: CHAT_ID, text: message })
+      body: JSON.stringify({
+        chat_id: CHAT_ID,
+        text: message,
+        parse_mode: 'Markdown'
+      })
     })
     .then(res => res.json())
     .then(data => {
